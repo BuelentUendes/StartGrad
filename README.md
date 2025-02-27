@@ -10,7 +10,7 @@ Mask-based explanation methods offer a powerful framework for interpreting deep 
 In this paper, we argue that an effective mask initialization strategy is as important as the development of novel learning objectives, particularly in light of the significant computational costs associated with existing mask-based explanation methods. To this end, we introduce a new gradient-based initialization technique called StartGrad, which is the first initialization method specifically designed for mask-based post-hoc explainability methods. Compared to commonly used strategies, StartGrad is provably superior at initialization in striking the aforementioned trade-off. Despite its simplicity, our experiments demonstrate that StartGrad consistently speeds up the optimization process of various state-of-the-art mask-explanation methods by reaching target metrics quicker and, in some cases, boosts their overall performance.
 
 <p align="center">
-  <img src="pics/startgrad_pseudocode.png" width="600">
+  <img src="pics/startgrad_pseudocode.png" width="450">
 </p>
 
 ## Setup and Usage
