@@ -38,6 +38,10 @@ pip3 install -e .
 ```bash
 pip3 install https://github.com/stefanloock/pyshearlab/archive/master.zip
 ```
+
+#### Tested environment:
+The project was run and tested on both MacOS Sonoma and Linux Ubuntu with Python 3.9 installed.
+
 ### Repository structure
 The repository is structured as follows. 
 
