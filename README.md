@@ -79,13 +79,7 @@ All implementations are in `src/vision/`:
 2. Example command:
 ```bash
 cd ./experiments/vision
-python3 main_vision.py \
-    --method shearletX,shearletX_saliency,shearletX_uniform \
-    --folder Custom \
-    --input kobe.jpg \
-    --iterations 5 \
-    --pretrained_model resnet18 \
-    --seed 123
+python3 main_vision.py --method shearletX,shearletX_saliency,shearletX_uniform --folder Custom --input kobe.jpg --iterations 5 --pretrained_model resnet18 --seed 123
 ```
 
 3. Results
@@ -94,12 +88,30 @@ python3 main_vision.py \
 
 For detailed parameter descriptions, see `main_vision.py`.
 
-#### Time-Series
+### Time Series
+#### Data Setup
+There are two datasets implemented, state and switch-feature dataset.
+
+#### Available Methods
+##### Explainer
+##### Classifiers
+All implementations are in `src/vision/`:
+- PixelMask (`pixel_RDE.py`)
+- WaveletX (`cartoonX.py`)
+- ShearletX (`shearletX.py`)
+- Gradient-based methods (`saliency_methods.py`): Integrated Gradients, SmoothGrad, GradCam
+
+For detailed parameter descriptions, see `main_vision.py`.
 
 Run experiment with state dataset:
 ```bash
-cd ./experiments/time_series
-python run_experiment.py experiment=mnist/dvp_vae
+cd ./experiments/
+python3 main_time_series.py \
+    --dataset state \
+    --mode preservation_game \
+    --epochs 50
+    --
+    --seed 42
 ```
 
 ## Citation
