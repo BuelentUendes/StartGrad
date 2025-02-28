@@ -59,14 +59,45 @@ This project uses [W&B](https://wandb.ai) for experiment tracking and model mana
 Experiment configurations are in the `config_environment` folder. The config files are configured to correpond to the default settings used in the paper. Please read the paper for more information on the hyperparameters.
 
 #### Vision
-Run ShearletX experiment:
+To work with ImageNet data, one needs to download the ImageNet validation set and put them in 
+`data/ImageNet/validation_set/<INSERT_HERE_THE_FOLDERS>`. This repository comes with custom images that are there to run the methods
+quickly on some exemplary images. 
+
+There are three main baseline mask-based XAI methods implemented that work on the vision domain which
+can be found in the `src/vision` folder.
+- `pixel_RDE.py` -> PixelMask 
+- `cartoonX.py` -> WaveletX 
+- `shearletX.py` -> ShearletX 
+- `saliency_methods.py` -> Additional gradient-based methods such Integrated Gradients, SmoothGrad or GradCam
+
+The corresponding config files for each of the methods are in the `config_environment/vision/<MASK_NETHOD>` folder.
+
+**Important** The startgrad initialization is named 'saliency' throughout. For instance, the config file for the ShearletX model (StartGrad)
+can be found in the '`hparams_shearletX_saliency.yaml` file.
+
+To run the ShearletX model with all three initialization on the kobe.jpg custom image across
+25 iterations on a pretrained ResNet18 model, you can run the command below:
 ```bash
-python run_experiment.py experiment=mnist/dvp_vae
+cd ./experiments/vision
+python3 python3 main_vision.py --method shearletX,shearletX_saliency,shearletX_uniform --folder Custom --input kobe.jpg --iterations 5 --pretrained_model resnet18 --seed 123
+
 ```
+The command above will plot the original image alongside each of the masked compressed images. The figure is 
+automatically saved under `figures/shearletX/123/resnet18/Comparison_explainers_<LAST_MASK_METHOD>_<SEED_NUMBER>.png`
+
+In our example above, the figure with the name `Comparison_explainers_shearletX_uniform_5_123.png`.
+
+Specifications on the parameters specified via the argsparser can be found in the 
+corresponding `main_vision.py` file. 
+
+**ToDo**:
+Add how to get the visualizations obtained in the paper.
 
 #### Time-Series
+
 Run experiment with state dataset:
 ```bash
+cd ./experiments/time_series
 python run_experiment.py experiment=mnist/dvp_vae
 ```
 
