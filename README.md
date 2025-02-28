@@ -58,40 +58,41 @@ This project uses [W&B](https://wandb.ai) for experiment tracking and model mana
 ### Running Experiments
 Experiment configurations are in the `config_environment` folder. The config files are configured to correpond to the default settings used in the paper. Please read the paper for more information on the hyperparameters.
 
-#### Vision
-To work with ImageNet data, one needs to download the ImageNet validation set and put them in 
-`data/ImageNet/validation_set/<INSERT_HERE_THE_FOLDERS>`. This repository comes with custom images that are there to run the methods
-quickly on some exemplary images. 
+### Vision Experiments
 
-There are three main baseline mask-based XAI methods implemented that work on the vision domain which
-can be found in the `src/vision` folder.
-- `pixel_RDE.py` -> PixelMask 
-- `cartoonX.py` -> WaveletX 
-- `shearletX.py` -> ShearletX 
-- `saliency_methods.py` -> Additional gradient-based methods such Integrated Gradients, SmoothGrad or GradCam
+#### Data Setup
+- For ImageNet experiments: Download the validation set and place in `data/ImageNet/validation_set/`
+- For quick testing: Use provided custom images in the repository
 
-The corresponding config files for each of the methods are in the `config_environment/vision/<MASK_NETHOD>` folder.
+#### Available Methods
+All implementations are in `src/vision/`:
+- PixelMask (`pixel_RDE.py`)
+- WaveletX (`cartoonX.py`)
+- ShearletX (`shearletX.py`)
+- Gradient-based methods (`saliency_methods.py`): Integrated Gradients, SmoothGrad, GradCam
 
-**Important** The startgrad initialization is named 'saliency' throughout. For instance, the config file for the ShearletX model (StartGrad)
-can be found in the '`hparams_shearletX_saliency.yaml` file.
+#### Running Experiments
+1. Configuration files are in `config_environment/vision/<METHOD>/`
+   - Note: StartGrad initialization is labeled as 'saliency' in configs
+   - Example: ShearletX with StartGrad uses `hparams_shearletX_saliency.yaml`
 
-To run the ShearletX model with all three initialization on the kobe.jpg custom image across
-25 iterations on a pretrained ResNet18 model, you can run the command below:
+2. Example command:
 ```bash
 cd ./experiments/vision
-python3 python3 main_vision.py --method shearletX,shearletX_saliency,shearletX_uniform --folder Custom --input kobe.jpg --iterations 5 --pretrained_model resnet18 --seed 123
-
+python3 main_vision.py \
+    --method shearletX,shearletX_saliency,shearletX_uniform \
+    --folder Custom \
+    --input kobe.jpg \
+    --iterations 5 \
+    --pretrained_model resnet18 \
+    --seed 123
 ```
-The command above will plot the original image alongside each of the masked compressed images. The figure is 
-automatically saved under `figures/shearletX/123/resnet18/Comparison_explainers_<LAST_MASK_METHOD>_<SEED_NUMBER>.png`
 
-In our example above, the figure with the name `Comparison_explainers_shearletX_uniform_5_123.png`.
+3. Results
+- Outputs comparison plots of original and masked images
+- Saved to: `figures/shearletX/<seed>/<model>/Comparison_explainers_<method>_<seed>.png`
 
-Specifications on the parameters specified via the argsparser can be found in the 
-corresponding `main_vision.py` file. 
-
-**ToDo**:
-Add how to get the visualizations obtained in the paper.
+For detailed parameter descriptions, see `main_vision.py`.
 
 #### Time-Series
 
