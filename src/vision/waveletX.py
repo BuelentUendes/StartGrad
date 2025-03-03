@@ -12,13 +12,6 @@ from sklearn.preprocessing import QuantileTransformer
 from utils.vision.helper import ContrastiveTransformations, contrast_transforms, \
     get_probability_tensor_from_mask, gumbel_softmax, time_it, time_it_QTF
 
-# BASE_DATA_PATH = os.getcwd()
-# DATA_PATH = os.path.join(BASE_DATA_PATH, './../', 'data', 'ImageNet')
-#
-# # Standard measures for mean and std for the transformation for IMAGENET model_architecture
-# NORM_MEAN = np.array([0.485, 0.456, 0.406])
-# NORM_STD = np.array([0.229, 0.224, 0.225])
-
 
 class WaveletX(torch.nn.Module):
 
