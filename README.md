@@ -86,8 +86,9 @@ The command above stores a visual comparison between the original image and the 
 For detailed parameter descriptions, see `main_vision.py`.
 
 3. Results & Figures
-The results folder contains important results file stored as csv files which can be used to generate plots of the paper.
-Important: Some of the csv files in the corresponding resnet folders are in a zip format, so one needs to unzip these first.
+
+The results folder contains important results files stored as csv files which can be used to generate plots of the paper.
+**Important**: Some of the csv files in the corresponding resnet18 folders are in a zip format, so one needs to unzip these first.
 
 To generate the main figures, please have a look at the bash scripts of the `experiments/vision` folder.
 
