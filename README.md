@@ -67,7 +67,7 @@ Experiment configurations are in the `config_environment` folder. The config fil
 #### Available Methods
 All implementations are in `src/vision/`:
 - PixelMask (`pixel_RDE.py`)
-- WaveletX (`cartoonX.py`)
+- WaveletX (`waveletX.py`)
 - ShearletX (`shearletX.py`)
 - Gradient-based methods (`saliency_methods.py`): Integrated Gradients, SmoothGrad, GradCam
 
