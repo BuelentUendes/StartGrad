@@ -117,8 +117,8 @@ If the dataset has not yet been generated for the seed, it will first create it 
 and fitting the mask-based XAI method.
 
 3. Results
-Performance results are then saved to `results/time_series/extremal/<seed>/<model_type>/<mode>/<fold_number>`
-Average performance plots are then generated and saved to `figures/time_series/<dataset>/extremal/<seed_number>/<model_type>/<mode>`
+- Performance results are then saved to `results/time_series/extremal/<seed>/<model_type>/<mode>/<fold_number>`
+- Average performance plots are then generated and saved to `figures/time_series/<dataset>/extremal/<seed_number>/<model_type>/<mode>`
 
 For detailed parameter descriptions, see `main_time_series.py`.
 
