@@ -45,12 +45,12 @@ The project was run and tested on both MacOS Sonoma and Linux Ubuntu with Python
 ### Repository structure
 The repository is structured as follows. 
 
-- `data/` contains the source code as well as the datasets used in this study
+- `data/` contains the source code as well as the datasets used in this study.
 - `utils/` contains helper functions for the project.
 - `src/` contains the main source code for the project for both vision and time-series experiments.
-- `config_environment/` contains configuration files for experiments
-- `experiments/` contains experiment scripts and notebooks
-- `pics/` contains images used in documentation
+- `config_environment/` contains configuration files for experiments.
+- `experiments/` contains experiment scripts and bash scripts.
+- `pics/` contains images used in documentation.
 
 ### Weights and Biases
 This project uses [W&B](https://wandb.ai) for experiment tracking and model management.
@@ -81,12 +81,15 @@ All implementations are in `src/vision/`:
 cd ./experiments/vision
 python3 main_vision.py --method shearletX,shearletX_saliency,shearletX_uniform --folder Custom --input kobe.jpg --iterations 5 --pretrained_model resnet18 --seed 123
 ```
-
-3. Results
-- Outputs comparison plots of original and masked images
-- Saved to: `figures/shearletX/<seed>/<model>/Comparison_explainers_<method>_<seed>.png`
+The command above stores a visual comparison between the original image and the masked image to: `figures/shearletX/<seed>/<model>/Comparison_explainers_<method>_<seed>.png`
 
 For detailed parameter descriptions, see `main_vision.py`.
+
+3. Results & Figures
+The results folder contains important results file stored as csv files which can be used to generate plots of the paper.
+Important: Some of the csv files in the corresponding resnet folders are in a zip format, so one needs to unzip these first.
+
+To generate the main figures, please have a look at the bash scripts of the `experiments/vision` folder.
 
 ### Time Series
 #### Data Setup
