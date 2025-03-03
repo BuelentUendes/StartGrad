@@ -110,12 +110,15 @@ There are two classifiers implemented, a LSTM and a GRU deep learning architectu
 2. Example command:
 ```bash
 cd ./experiments/time_series
-python3 main_time_series.py --iterations 500 --epochs 50 --mode preservation_game --model_type GRU --dataset state
+python3 main_time_series.py --iterations 500 --epochs 50 --mode preservation_game --model_type GRU --dataset state --plot_average
 ```
 
+If the dataset has not yet been generated for the seed, it will first create it before training the time-series classifier
+and fitting the mask-based XAI method.
+
 3. Results
-Performance results are then saved to 
-- Saved to: `time_series/extremal/<seed>/<model_type>/<mode>/<number_fold>`
+Performance results are then saved to `results/time_series/extremal/<seed>/<model_type>/<mode>/<fold_number>`
+Average performance plots are then generated and saved to `figures/time_series/<dataset>/extremal/<seed_number>/<model_type>/<mode>`
 
 For detailed parameter descriptions, see `main_time_series.py`.
 
