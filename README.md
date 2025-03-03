@@ -90,29 +90,34 @@ For detailed parameter descriptions, see `main_vision.py`.
 
 ### Time Series
 #### Data Setup
-There are two datasets implemented, state and switch-feature dataset.
+There are two datasets implemented, state and switch-feature dataset. The corresponding scripts to generate the 
+datasets can be found in `utils/time_series/`.
 
 #### Available Methods
 ##### Explainer
+In this repo, we use the ExtremalMask method introduced [in this paper](https://openreview.net/forum?id=WpeZu6WzTB) 
+as a time-series mask-based explainer. The implementation can be found in `src/time_series/timeseries_mask_explainer.py`.
+
 ##### Classifiers
-All implementations are in `src/vision/`:
-- PixelMask (`pixel_RDE.py`)
-- WaveletX (`cartoonX.py`)
-- ShearletX (`shearletX.py`)
-- Gradient-based methods (`saliency_methods.py`): Integrated Gradients, SmoothGrad, GradCam
+There are two classifiers implemented, a LSTM and a GRU deep learning architecture. The corresponding code can be found
+`src/time_series/XAI_classifier.py`.
 
-For detailed parameter descriptions, see `main_vision.py`.
+#### Running Experiments
+1. Configuration files are in `config_environment/time_series/<OBJECTIVE_FORMULATION>/`
+   - Note: StartGrad initialization is labeled as 'gradient' in configs
+   - Example: `hparams_extrema_gradient.yaml`
 
-Run experiment with state dataset:
+2. Example command:
 ```bash
-cd ./experiments/
-python3 main_time_series.py \
-    --dataset state \
-    --mode preservation_game \
-    --epochs 50
-    --
-    --seed 42
+cd ./experiments/time_series
+python3 main_time_series.py --iterations 500 --epochs 50 --mode preservation_game --model_type GRU --dataset state
 ```
+
+3. Results
+Performance results are then saved to 
+- Saved to: `time_series/extremal/<seed>/<model_type>/<mode>/<number_fold>`
+
+For detailed parameter descriptions, see `main_time_series.py`.
 
 ## Citation
 If you found this work useful in your research, please consider citing:
