@@ -138,6 +138,6 @@ If you found this work useful in your research, please consider citing:
 ```
 
 ## Acknowledgements
-This work is funded by [Stress in Action]( www.stress-in-action.nl). The research project [Stress in Action]( www.stress-in-action.nl) is financially supported by the Dutch Research Council and the Dutch Ministry of Education, Culture and Science (NWO gravitation grant number 024.005.010).
+This work is funded by [Stress in Action](https://stress-in-action.nl/). The research project [Stress in Action](https://stress-in-action.nl/) is financially supported by the Dutch Research Council and the Dutch Ministry of Education, Culture and Science (NWO gravitation grant number 024.005.010).
 
 Part of the code relies on repository [ShearletX](https://github.com/skmda37/ShearletX) for the associated paper [Explaining Image Classifiers with Multiscale Directional Image Representation](https://arxiv.org/pdf/2211.12857) for the vision experiments. For the time series experiments, we also relied on the repository [time interpret](https://github.com/josephenguehard/time_interpret) for the implementation of the ExtremalMask model and generation of the synthetic datasets.
