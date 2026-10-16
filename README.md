@@ -129,11 +129,15 @@ For detailed parameter descriptions, see `main_time_series.py`.
 ## Citation
 If you found this work useful in your research, please consider citing:
 ```bibtex
-@article{buendes2025startgrad,
-  title={Start Smart: Leveraging Gradients For Enhancing Mask-based XAI Methods},
-  author={Uendes, Buelent  and Yu, Shujian, and Hoogendoorn, Mark},
-  journal={Proceedings of the 13th International Conference on Learning Representations},
-  year={2025}
+@inproceedings{ICLR2025_16ea5a6e,
+ author = {Uendes, Buelent and Yu, Shujian and Hoogendoorn, Mark},
+ booktitle = {International Conference on Learning Representations},
+ editor = {Y. Yue and A. Garg and N. Peng and F. Sha and R. Yu},
+ pages = {7846--7906},
+ title = {Start Smart: Leveraging Gradients For Enhancing Mask-based XAI Methods},
+ url = {https://proceedings.iclr.cc/paper_files/paper/2025/file/16ea5a6e34b9f0128c9fe8b44f5727df-Paper-Conference.pdf},
+ volume = {2025},
+ year = {2025}
 }
 ```
 
